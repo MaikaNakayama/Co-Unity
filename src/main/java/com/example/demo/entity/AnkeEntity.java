@@ -20,8 +20,8 @@ public class AnkeEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ans_cd")
-	private Integer ansCd;
+	@Column(name = "anke_cd")
+	private Integer ankeCd;
 
 	@Column(name = "shop_name")
 	private String shopName;
