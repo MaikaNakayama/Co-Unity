@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,10 +22,13 @@ public class AceController {
 	private final AnkeService ankeService;
 	
 	//ace.htmlからanke.htmlに遷移させる
-	@GetMapping("/anke")
+	
+	@PostMapping("/anke")
 	public ModelAndView sample(@ModelAttribute ModelAndView mv) {
+		mv.setViewName("anke");
 		return mv;
 	}
+	
 
 	/**
 	 * anke.htmlからankeComplete.htmlに遷移させる。
@@ -47,7 +49,7 @@ public class AceController {
 			ankeEntity.setEvaCd(ankeForm.getEvaCd());
 			ankeEntity.setReason(ankeForm.getReason());
 			ankeRepository.saveAndFlush(ankeEntity);
-			mv.setViewName("information");
+			mv.setViewName("ankeComplete");
 			return mv;
 		}else {
 			mv.setViewName("anke");
