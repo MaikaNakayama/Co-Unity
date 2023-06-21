@@ -1,8 +1,8 @@
-package com.example.demo.Repository;
+package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.Entity.AnkeEntity;
+import com.example.demo.entity.AnkeEntity;
 /**
  * 入力された情報をDB上にのせるためのインターフェース
  * @author 五十嵐

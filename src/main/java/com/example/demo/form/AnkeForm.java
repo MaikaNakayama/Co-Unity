@@ -1,6 +1,6 @@
 package com.example.demo.form;
 
-import com.example.demo.Entity.AnkeEntity;
+import com.example.demo.entity.AnkeEntity;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
