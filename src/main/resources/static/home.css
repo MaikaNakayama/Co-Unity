@@ -1,0 +1,46 @@
+.top {
+	background-color: #34495E;
+	color: #FFF;
+}
+.navbar {
+	background-color: #dfe0e2;
+	color: #FFF;
+}
+
+.content {
+	background-color: #5a3f3f;
+	color: #FFF;
+    height: 180px;
+}
+
+.bottom {
+    text-align: center;
+    background-color: #34495E;
+	color: #FFF;
+}
+.img-fluid {
+    height: auto;
+    width: 70%;
+}
+.pct{
+    height:auto;
+    width:50%;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+	height: 100px;
+    width: 100px;
+    outline: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+input[type=radio]{
+    width: 30px;
+    height: 30px;
+
+}
+#btn1{
+    size:10px;
+}
