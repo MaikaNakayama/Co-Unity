@@ -32,6 +32,10 @@ public class AnkeForm {
 	private String reason;
 	
 	
+	/**
+	 * AnkeEntityに値を格納
+	 * @return AnkeEntity
+	 */
 	public AnkeEntity getEntity() {
 		AnkeEntity ankeEntity = new AnkeEntity();
 		ankeEntity.setShopName(shopName);
