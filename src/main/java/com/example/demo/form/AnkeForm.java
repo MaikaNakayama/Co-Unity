@@ -23,8 +23,8 @@ public class AnkeForm {
 	
 	
 	@NotNull(message = "評価点数をご記入ください")
-	@Min(value = 1, message = "1～5の内から選択してください")
-	@Max(value = 5, message = "1～5の内から選択してください")
+	@Min(value = 1, message = "1～5の中から選択してください")
+	@Max(value = 5, message = "1～5の中から選択してください")
 	private Integer evaCd;
 	
 	
