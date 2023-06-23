@@ -14,7 +14,7 @@ public class GenreEntity {
 	@Id
 	@Column(name = "genre_cd")
 	private Integer genreCd;
-	
+
 	@Column(name = "genre_name")
 	private String genreName;
 }
