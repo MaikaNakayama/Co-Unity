@@ -60,7 +60,7 @@ public class AnkeService {
 		}
 		return ret;
 	}
-	public boolean validNull(AnkeForm ankeForm, BindingResult result) {
+	public boolean validEmp(AnkeForm ankeForm, BindingResult result) {
 		boolean ret = true;
 		String inputShopName = ankeForm.getShopName();
 		
