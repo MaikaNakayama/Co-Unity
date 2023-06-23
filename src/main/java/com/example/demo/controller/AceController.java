@@ -50,7 +50,7 @@ public class AceController {
 			ankeEntity.setEvaCd(ankeForm.getEvaCd());
 			ankeEntity.setReason(ankeForm.getReason());
 			ankeRepository.saveAndFlush(ankeEntity);
-			mv.setViewName("ankeComplete");
+			mv.setViewName("ankecomplete");
 			return mv;
 		}else {
 			mv.setViewName("anke");

@@ -10,7 +10,7 @@
 </head>
 <body>
     
-<form action="/anke" method="post">
+<form action="/ankeComplete" method="post">
 
 
     <div class="container-fluid">
@@ -26,20 +26,20 @@
     </div>
 <div>
     <h4>店舗名</h4>
-	<input type="text" >
+	<input type="text" name="shopName">
     </div><br>
     <div>
     <h4>評価</h4>
-  <label> <input type="radio" name="radio" value="5点" >5点</label>
-  <label> <input type="radio" name="radio" value="4点" >4点</label>
-  <label> <input type="radio" name="radio" value="3点" >3点</label>
-  <label> <input type="radio" name="radio" value="2点" >2点</label>
-  <label> <input type="radio" name="radio" value="1点" >1点</label>
+  <label> <input type="radio" name="evaCd" value="5" >5点</label>
+  <label> <input type="radio" name="evaCd" value="4" >4点</label>
+  <label> <input type="radio" name="evaCd" value="3" >3点</label>
+  <label> <input type="radio" name="evaCd" value="2" >2点</label>
+  <label> <input type="radio" name="evaCd" value="1" >1点</label>
 </div>
 
 <div><br>
 <h4>上記の評価を選んだ理由</h4>
-    <textarea cols="100" rows="10"></textarea>
+    <textarea cols="100" rows="10" name="reason"></textarea>
 </div>
 <div id="btn1">
 <input type="submit" value="送信" class="btn btn-lg btn-outline-primary">
