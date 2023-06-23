@@ -20,9 +20,9 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="top py-4">
+				<div class="top py-4 ">
 
-					<h2>Ace
+					<h2 >Ace
 						<ruby>
 							東雲南<rt>しののめみなみ</rt>
 						</ruby>店
@@ -30,13 +30,13 @@
 				</div>
 			</div>
 		</div>
-		<div>
+		<div class="tenpo ms-3">
 			<h4>店舗名</h4>
 			<input type="text" name="shopName" th:field="*{shopName}">
 		</div>
-		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" 　class="error"></span><br>
+		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" 　class="error ms-3"></span><br>
 		<br>
-		<div>
+		<div class="tenpo ms-3">
 			<h4>評価</h4>
 			<label> <input type="radio" name="evaCd" value="5">5点</label>
 			<label> <input type="radio" name="evaCd" value="4">4点</label>
@@ -44,16 +44,16 @@
 			<label> <input type="radio" name="evaCd" value="2">2点</label>
 			<label> <input type="radio" name="evaCd" value="1">1点</label>
 		</div>
-		<span th:if="${#fields.hasErrors('reason')}" th:errors="*{evaCd}" class="error"></span><br>
+		<span th:if="${#fields.hasErrors('reason')}" th:errors="*{evaCd}" class="error ms-3"></span><br>
 
-		<div><br>
+		<div class="tenpo ms-3"><br>
 			<h4>上記の評価を選んだ理由</h4>
 			<textarea cols="100" rows="10" name="reason"></textarea><br>
-			<span th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}" class="error"></span><br>
+			<span th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}" class="error ms-3"></span><br>
 
 
 		</div>
-		<div id="btn1">
+		<div id="btn1 ms-3">
 			<input type="submit" value="送信" class="btn btn-lg btn-outline-primary">
 		</div>
 
