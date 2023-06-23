@@ -55,6 +55,8 @@ public class AceController {
 			AnkeEntity ankeEntity = new AnkeEntity();
 			ankeEntity.setShopName(ankeForm.getShopName());
 			ankeEntity.setEvaCd(ankeForm.getEvaCd());
+			ankeEntity.setCevaCd(ankeForm.getCevaCd());
+			ankeEntity.setSevaCd(ankeForm.getSevaCd());
 			ankeEntity.setReason(ankeForm.getReason());
 			ankeRepository.saveAndFlush(ankeEntity);
 			mv.setViewName("ankecomplete");
