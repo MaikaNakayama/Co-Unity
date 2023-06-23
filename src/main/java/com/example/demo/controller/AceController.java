@@ -54,6 +54,7 @@ public class AceController {
 		
 		ankeService.validName(ankeForm, result);
 		ankeService.validReason(ankeForm, result);
+		ankeService.validNull(ankeForm, result);
 		if(!result.hasErrors()) {
 			AnkeEntity ankeEntity = new AnkeEntity();
 			ankeEntity.setShopName(ankeForm.getShopName());

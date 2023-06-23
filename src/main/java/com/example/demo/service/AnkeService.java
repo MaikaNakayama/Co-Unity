@@ -60,4 +60,18 @@ public class AnkeService {
 		}
 		return ret;
 	}
+	public boolean validNull(AnkeForm ankeForm, BindingResult result) {
+		boolean ret = true;
+		String inputShopName = ankeForm.getShopName();
+		
+		if("" .equals(inputShopName)) {
+				//inputReasonが全角スペースだった場合
+				
+				result.addError(new FieldError(
+						result.getObjectName(),
+						"shopName",
+						"選択されていません"));
+			}
+		return ret;
+}
 }
