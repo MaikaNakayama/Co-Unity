@@ -15,6 +15,11 @@ import com.example.demo.service.AnkeService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * 顧客側の画面遷移を決定するコントローラークラス
+ * @author isa
+ * @version 1.0
+ */
 @AllArgsConstructor
 @Controller
 public class AceController {
