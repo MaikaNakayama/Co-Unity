@@ -20,7 +20,7 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="top py-4 ">
+				<div class="top py-4  ">
 
 					<h2 >Ace
 						<ruby>
@@ -30,12 +30,87 @@
 				</div>
 			</div>
 		</div>
-		<div class="tenpo ms-3">
-			<h4>店舗名</h4>
-			<input type="text" name="shopName" th:field="*{shopName}">
-		</div>
+			<!-- ▼2段階プルダウンメニューの例（市を選択すると区が出てくる） -->
+            <div class="pulldownset ms-3 mt-3"> 
+
+                <!-- ========================================== -->
+                <!-- (※1)▼1段階目(メイン)のプルダウンメニュー -->
+                ■店舗を選択：
+                <br>
+                <select class="mainselect">
+                   <option value="">ジャンルを選択</option>
+                   <option value="toy">グッズ</option>
+                   <option value="gourmet">グルメ</option>
+                   <option value="sarvice">サービス</option>
+                </select>
+             
+                <!-- ================================================================ -->
+                <!-- (※2)▼項目「神戸市」に対応する2段階目(サブ)のプルダウンメニュー -->
+                <select id="toy" class="subbox">
+                   <option value="">グッズを選択</option>
+                   <option value="hn">OWNDAYS</option>
+                   　：　：　：
+                   <option value="hg">ダイソー</option>
+                </select>
+             
+                <!-- ================================================================ -->
+                <!-- (※3)▼項目「大阪市」に対応する2段階目(サブ)のプルダウンメニュー -->
+                <select id="gourmet" class="subbox">
+                   <option value="">グルメを選択</option>
+                   <option value="kt">コメダ珈琲</option>
+                   　：　：　：
+                   <option value="tj">イタリアンダイニングDONA</option>
+                   <option value="ab">リンガーハット</option>
+                   <option value="se">マクドナルド</option>
+                </select>
+             
+                <!-- ================================================================ -->
+                <!-- (※4)▼項目「京都市」に対応する2段階目(サブ)のプルダウンメニュー -->
+                <select id="kyoto" class="subbox">
+                   <option value="">サービスを選択</option>
+                   <option value="uk">ママショップ可能クリーニング</option>
+                    　：　：　：
+                   <option value="fs">マジックミシン</option>
+                   <option value="ys">ラフィネ</option>
+                   <option value="rf">イオンカルチャークラブ</option>
+                </select>
+             
+             </div>
+             
+            <!-- ▼すべてのプルダウンメニューを書き終えた後にJavaScriptを記述▼ -->
+<script type="text/javascript">
+
+    // ▼サブBOXを全て非表示にする
+    var allSubBoxes = document.querySelectorAll(".subbox");
+    for( var i=0 ; i<allSubBoxes.length ; i++) {
+       allSubBoxes[i].style.display = 'none';
+    }
+ 
+    // ▼全てのプルダウンボックスごとに処理
+    var mainBoxes = document.querySelectorAll('.pulldownset');
+    for( var i=0 ; i<mainBoxes.length ; i++) {
+    
+       var mainSelect = mainBoxes[i].querySelectorAll(".mainselect");   // メインのプルダウンメニュー（※後でvalue属性値を参照するので、select要素である必要があります。）
+       mainSelect[0].onchange = function () {
+          // ▼同じ親要素に含まれている全サブBOXを消す
+          var subBox = this.parentNode.querySelectorAll(".subbox");   // 同じ親要素に含まれる.subbox（※select要素に限らず、どんな要素でも構いません。）
+          for( var j=0 ; j<subBox.length ; j++) {
+             subBox[j].style.display = 'none';
+          }
+    
+          // ▼指定されたサブBOXだけを表示する
+          if( this.value ) {
+             var targetSub = document.getElementById( this.value );   // 「メインのプルダウンメニューで選択されている項目のvalue属性値」と同じ文字列をid属性値に持つ要素を得る
+             targetSub.style.display = 'inline';
+          }
+       }
+    
+    }
+ 
+ </script>
+		
 		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" 　class="error ms-3"></span><br>
-		<br>
+		</div>
 		<div class="tenpo ms-3">
 			<h4>店内雰囲気の評価</h4>
 			<label> <input type="radio" name="evaCd" value="5">5点</label>
@@ -68,7 +143,7 @@
 
 		<div class="tenpo ms-3"><br>
 			<h4>上記の評価を選んだ理由</h4>
-			<textarea cols="100" rows="10" name="reason"></textarea><br>
+			<textarea name="reason" style="width:100%; height:80px;"></textarea><br>
 			<span th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}" class="error ms-3"></span><br><br>
 
 
