@@ -28,6 +28,12 @@ public class AnkeEntity {
 
 	@Column(name = "eva_cd")
 	private Integer evaCd;
+	
+	@Column(name = "ceva_cd")
+	private Integer cevaCd;
+	
+	@Column(name = "seva_cd")
+	private Integer sevaCd;
 
 	@Column(name = "reason")
 	private String reason;
