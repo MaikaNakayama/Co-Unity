@@ -49,6 +49,9 @@ public class AceController {
 	//エラーがある場合はanke.htmlにエラーを返す。ない場合はankeComplete.htmlに遷移。
 	@PostMapping("/ankeComplete")
 	public ModelAndView ankeInput(@ModelAttribute @Validated AnkeForm ankeForm, BindingResult result, ModelAndView mv) {
+		ankeForm.setShopName(ankeForm.getShopName().replace(",",""));
+		
+		
 		ankeService.validName(ankeForm, result);
 		ankeService.validReason(ankeForm, result);
 		if(!result.hasErrors()) {
