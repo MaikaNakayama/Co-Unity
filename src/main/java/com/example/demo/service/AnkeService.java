@@ -31,7 +31,7 @@ public class AnkeService {
 				
 				result.addError(new FieldError(												
 						result.getObjectName(),
-						"shopname",
+						"shopName",
 						"全角スペースです。"
 						));
 			}

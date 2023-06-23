@@ -30,8 +30,10 @@ public class AceController {
 	//ace.htmlからanke.htmlに遷移させる
 	
 	@GetMapping("/anke")
-	public ModelAndView sample(@ModelAttribute ModelAndView mv) {
+	public ModelAndView sample(AnkeForm ankeForm, ModelAndView mv) {
+		mv.addObject("ankeForm", new AnkeForm());
 		mv.setViewName("anke");
+		
 		return mv;
 	}
 	
