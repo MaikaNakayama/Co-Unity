@@ -41,7 +41,7 @@
 						<tr th:each="data:${saleList}">
 							<td th:text="${data.genreName}"></td>
 							<td th:text="${data.date}"></td>
-							<td th:text="${data.saleRate}"></td>
+							<td th:text="${data.saleRate}">%OFF!!</td>
 							<td th:text="${data.rec}"></td>
 						</tr>
 					</table>
