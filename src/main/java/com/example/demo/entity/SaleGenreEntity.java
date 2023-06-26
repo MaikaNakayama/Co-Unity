@@ -36,6 +36,9 @@ public class SaleGenreEntity implements Persistable<GenreEntity> {
 	@Column(name = "sale_rate")
 	private Integer saleRate;
 	
+	@Column(name = "rec")
+	private String rec;
+	
 	
 	@Override
 	public GenreEntity getId() {
