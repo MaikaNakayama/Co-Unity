@@ -20,7 +20,6 @@ public interface GenreRepository extends JpaRepository<SaleGenreEntity, Integer>
 
 }
 
-
 //SaleEntityのところには新しく作ったEntityクラス名を入れる
 //新しいEntityクラスにはdate, sale_rate, genre_nameを入れる
 //WHERE genre_cd=:genre_cd で表を表示させるために何を入力させたいか
