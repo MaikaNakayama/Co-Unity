@@ -10,7 +10,7 @@ import lombok.Data;
 
 /**
  * アンケート情報を保持するエンティティクラス
- * @author 	平松優希
+ * @author 	平松
  * @version 	1.0
  */
 @Entity
@@ -28,10 +28,10 @@ public class AnkeEntity {
 
 	@Column(name = "eva_cd")
 	private Integer evaCd;
-	
+
 	@Column(name = "ceva_cd")
 	private Integer cevaCd;
-	
+
 	@Column(name = "seva_cd")
 	private Integer sevaCd;
 
