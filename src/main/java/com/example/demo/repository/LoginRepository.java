@@ -17,4 +17,5 @@ import com.example.demo.entity.LoginEntity;
 public interface LoginRepository extends JpaRepository<LoginRepository, Integer> {
 
 	List<LoginEntity> findByEmpId(@Param("empId") Integer empId);
+	
 }
