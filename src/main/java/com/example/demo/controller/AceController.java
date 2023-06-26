@@ -85,7 +85,7 @@ public class AceController {
 	 * @return mv
 	 */
 			@GetMapping("/sale")
-			public ModelAndView bargain(@ModelAttribute ModelAndView mv,@PathVariable("category_cd")Integer categoryCd) {
+			public ModelAndView bargain(@ModelAttribute ModelAndView mv,@PathVariable("discount_cd")Integer discountCd) {
 				List<SaleGenreEntity> saleList = genreRepository.findAll();
 				mv.addObject("saleList",saleList);
 				mv.setViewName("sale");
