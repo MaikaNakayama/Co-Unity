@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.AnkeEntity;
-import com.example.demo.entity.SaleEntity;
+import com.example.demo.entity.SaleGenreEntity;
 import com.example.demo.form.AnkeForm;
 import com.example.demo.repository.AnkeRepository;
 import com.example.demo.repository.GenreRepository;
@@ -86,7 +86,7 @@ public class AceController {
 	 */
 			@GetMapping("/sale")
 			public ModelAndView bargain(@ModelAttribute ModelAndView mv,@PathVariable("category_cd")Integer categoryCd) {
-				List<SaleEntity> saleList = genreRepository.findAll();
+				List<SaleGenreEntity> saleList = genreRepository.findAll();
 				mv.addObject("saleList",saleList);
 				mv.setViewName("sale");
 				return mv;
