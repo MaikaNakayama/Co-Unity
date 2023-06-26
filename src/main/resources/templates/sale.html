@@ -36,11 +36,13 @@
 							<th>ジャンル</th>
 							<th>日付</th>
 							<th>割引率</th>
+							<th>おすすめポイント</th>
 						</tr>
 						<tr th:each="data:${saleList}">
 							<td th:text="${data.genreName}"></td>
 							<td th:text="${data.date}"></td>
 							<td th:text="${data.saleRate}"></td>
+							<td th:text="${data.rec}"></td>
 						</tr>
 					</table>
 					<div class="button1">
