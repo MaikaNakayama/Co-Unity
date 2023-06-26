@@ -17,7 +17,7 @@ import lombok.Data;
  */
 
 @Entity
-@Table(name = "t_genre")
+@Table(name = "sale_data")
 @Data
 public class SaleEntity {
 
