@@ -1,16 +1,21 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.AnkeEntity;
+import com.example.demo.entity.SaleEntity;
 import com.example.demo.form.AnkeForm;
 import com.example.demo.repository.AnkeRepository;
+import com.example.demo.repository.GenreRepository;
 import com.example.demo.service.AnkeService;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +31,7 @@ public class AceController {
 	
 	private final AnkeRepository ankeRepository;
 	private final AnkeService ankeService;
+	private final GenreRepository genreRepository;
 	
 	//ace.htmlからanke.htmlに遷移させる
 	
@@ -71,4 +77,18 @@ public class AceController {
 		}
 		
 	}
+
+	/**
+	 * sale_dataからセール日と割引率を、t_genreから商品ジャンルをもらってace.htmlからsale.htmlに遷移させる
+	 * @param mv
+	 * @param categoryCd
+	 * @return mv
+	 */
+			@GetMapping("/sale")
+			public ModelAndView bargain(@ModelAttribute ModelAndView mv,@PathVariable("category_cd")Integer categoryCd) {
+				List<SaleEntity> saleList = genreRepository.findAll();
+				mv.addObject("saleList",saleList);
+				mv.setViewName("sale");
+				return mv;
+			}
 }

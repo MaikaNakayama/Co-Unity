@@ -34,7 +34,7 @@ public class SaleGenreEntity implements Persistable<GenreEntity> {
 	private LocalDate date;
 	
 	@Column(name = "sale_rate")
-	private Integer saleDate;
+	private Integer saleRate;
 	
 	
 	@Override
