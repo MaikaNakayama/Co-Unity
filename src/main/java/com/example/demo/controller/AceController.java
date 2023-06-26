@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -85,7 +84,7 @@ public class AceController {
 	 * @return mv
 	 */
 			@GetMapping("/sale")
-			public ModelAndView bargain(@ModelAttribute ModelAndView mv,@PathVariable("discount_cd")Integer discountCd) {
+			public ModelAndView bargain(@ModelAttribute ModelAndView mv) {
 				List<SaleGenreEntity> saleList = genreRepository.findAll();
 				mv.addObject("saleList",saleList);
 				mv.setViewName("sale");
