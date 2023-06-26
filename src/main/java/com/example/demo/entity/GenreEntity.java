@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,12 +9,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * 入力された情報をDB上にのせるためのインターフェース
+ * アンケート情報を保持するエンティティクラス
  * @author 道田
  * @version 	1.0
  */
 
-@Entity
+@Embeddable
 @Table(name = "t_genre")
 @Data
 public class GenreEntity {
