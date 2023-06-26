@@ -58,4 +58,9 @@ input[type=radio]{
 	font-weight: bold;
 }
 
+.link{
+	color: white;
+	text-decoration: none;
+}
+
 
