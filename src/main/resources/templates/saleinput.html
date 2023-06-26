@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<title>従業員専用ページ</title>
+</head>
+
+<body>
+	<form action="/salecomplete" th:object="${saleForm}" method="post">
+		<header class="header">
+			<h1>Ace従業員専用ページ</h1>
+			<p id="b"><c>Ace</c>「お客さまの豊かな生活を支援する」</p>
+		</header>
+		<h2>【セール日新規登録画面】</h2>
+		<main>
+			<p class="in">●日程●</p><br>
+				<p id="new"> *翌日以降の日時をご入力ください</p>
+			<input type="date" class="p-2 ms-5 mt-3" id="date" th:field="*{date}"><br>
+			<br>
+			<br>
+			<br>
+			<p class="in">●ジャンル●</p>
+			<label for="select1"></label>
+			<select id="select1" class="p-2 ms-5 mt-3" th:field="*{genreCd}">
+				<option value="0">ジャンルを選択してください</option>
+				<option value="1">野菜・果物</option>
+				<option value="2">肉・魚</option>
+				<option value="3">惣菜</option>
+				<option value="4">卵</option>
+				<option value="5">調味料</option>
+				<option value="6">米</option>
+				<option value="7">麺類</option>
+				<option value="8">乳製品</option>
+				<option value="9">酒</option>
+				<option value="10">製菓・アイス</option>
+			</select>
+			<br>
+			<br>
+			<br>
+			<p class="in">●割引率(%)●</p>
+			<input type="text" class="p-2 ms-5 mt-3" th:field="*{saleRate}"><br>
+			<br>
+			<br>
+			<br>
+			<p class="in">●謳い文句●</p>
+			<input type="text" class="p-2 ms-5 mt-3"th:field="*{rec}"><br>
+			<br>
+			<br>
+			<br>
+			<div class="button1">
+				<input type="submit" value="送信" class="btn btn-outline-primary">　<input type="reset" value="リセット"
+					class="btn btn-outline-secondary">　　　　　<button type="button" onclick="history.back()" class="btn btn-outline-danger">戻る</button>
+			</div>
+	</form>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+		</script>
+	</main>
+	</main>
+
+</html>

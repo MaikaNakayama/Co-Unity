@@ -25,5 +25,8 @@ public class SaleForm {
 	@NotBlank(message = "割引率を入力してください。")
 	@Size(min = 1, max = 90, message = "割引率は1~90までの数字を入力してください。")
 	private Integer saleRate;
+	
+	@NotBlank(message = "謳い文句を入力してください。")
+	private String rec;
 
 }
