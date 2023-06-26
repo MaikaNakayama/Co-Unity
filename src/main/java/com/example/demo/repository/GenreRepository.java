@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.demo.entity.GenreEntity;
-import com.example.demo.entity.SaleEntity;
+import com.example.demo.entity.SaleGenreEntity;
 
 /**
  * 入力された情報をDB上にのせるためのインターフェース
@@ -15,11 +15,11 @@ import com.example.demo.entity.SaleEntity;
  * @version 	1.0
  */
 
-public interface GenreRepository extends JpaRepository<SaleEntity, GenreEntity> {
+public interface GenreRepository extends JpaRepository<SaleGenreEntity, GenreEntity> {
 	
 	@Query(value="SELECT date, sale_rate,genre_name FROM sale_data"
 			+ " JOIN t_genre using(genre_cd) WHERE genre_cd=:genre_cd", nativeQuery = true)
-	List<SaleEntity> findAllById(@Param("genre_cd") Integer genre_cd);
+	List<SaleGenreEntity> findAllById(@Param("genre_cd") Integer genre_cd);
 
 }
 
@@ -27,8 +27,6 @@ public interface GenreRepository extends JpaRepository<SaleEntity, GenreEntity> 
 //新しいEntityクラスにはdate, sale_rate, genre_nameを入れる
 //WHERE genre_cd=:genre_cd で表を表示させるために何を入力させたいか
 
-//application.propertiesにspring.jpa.show-sql=trueを追加
+//select date, sale_rate, genre_name from sale_data join t_genre using(genre_cd) where genre_cd=:genre_cd", nativeQuery = true
 
-//select date, sale_rate, genre_name from sale_data join t_genre using(genre_cd) where genre_cd=:genre_cd", nativeQuery = true)
-
-//SELECT date, sale_rate,genre_name FROM sale_data JOIN t_genre using(genre_cd)
+//SELECT date, sale_rate,genre_name FROM sale_data JOIN t_genre using(genre_cd);
