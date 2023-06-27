@@ -33,7 +33,7 @@ public class EmployeeController {
 		public ModelAndView login(@ModelAttribute @Validated LoginForm loginform, BindingResult result,ModelAndView mv){
 			//サービスクラスのメソッドを呼び出してエラーチェックを行う
 			loginService.isValidEmpId(loginform, result);
-			
+			loginService.validQuestion(loginform, result);
 			if(!result.hasErrors()) {
 				//エラーがない場合.htmlに遷移する。
 				mv.setViewName("menu");
