@@ -78,12 +78,20 @@ public class EmployeeController {
 
 	@PostMapping("/salecomplete")
 	public ModelAndView insert(@ModelAttribute @Validated SaleForm saleForm, BindingResult result, ModelAndView mv) {
+		
+		if (result.hasErrors()) {
+			mv.setViewName("saleinput");
+			return mv;
+		}
 		//サービスクラスのメソッドを呼び出してエラーチェックを行う
 		saleService.validRec(saleForm, result);
-
-		if (!result.hasErrors()) {
+		if (result.hasErrors()) {
+			mv.setViewName("saleinput");
+			return mv;
+			
+		}else {
+		
 			//エラーがない場合、DBに情報を登録し、次画面に遷移する
-
 			SaleEntity saleEntity = new SaleEntity();
 			saleEntity.setGenreCd(saleForm.getGenreCd());
 			saleEntity.setDate(saleForm.getDate());
@@ -91,11 +99,6 @@ public class EmployeeController {
 			saleEntity.setRec(saleForm.getRec());
 			saleRepository.saveAndFlush(saleEntity);
 			mv.setViewName("salecomplete");
-			return mv;
-
-		} else {
-			//エラーがある場合ページにとどまる
-			mv.setViewName("saleinput");
 			return mv;
 		}
 	}

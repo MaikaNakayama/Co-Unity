@@ -6,6 +6,8 @@ import org.springframework.validation.FieldError;
 
 import com.example.demo.form.SaleForm;
 
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
 @Service
 public class SaleService {
 	
@@ -22,7 +24,9 @@ public class SaleService {
 						"rec",
 						"全角スペースです"));
 			}
+			
 		}
 		return ret;
 	}
 }
+
