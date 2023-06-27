@@ -22,13 +22,13 @@
 		<main>
 			<p class="in">●日程●</p><br>
 				<p id="new"> *翌日以降の日時をご入力ください</p>
-			<input type="date" class="p-2 ms-5 mt-3" id="date" th:field="*{date}"><br>
-			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error2 p-2 ms-5 mt-3"></span><br>
+			<input type="date" class="p-2 ms-3 mt-3" id="date" th:field="*{date}"><br>
+			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●ジャンル●</p>
 			<label for="select1"></label>
-			<select id="select1" class="p-2 ms-5 mt-3" th:field="*{genreCd}">
+			<select id="select1" class="p-2 ms-3 mt-3" th:field="*{genreCd}">
 				<option value="0">ジャンルを選択してください</option>
 				<option value="1">野菜・果物</option>
 				<option value="2">肉・魚</option>
@@ -42,18 +42,18 @@
 				<option value="10">製菓・アイス</option>
 			</select>
 			<br>
-			<span th:if="${#fields.hasErrors('genreCd')}" th:errors="*{genreCd}" class="error2 p-2 ms-5 mt-3"></span><br>
+			<span th:if="${#fields.hasErrors('genreCd')}" th:errors="*{genreCd}" class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●割引率(%)●</p>
-			<input type="number" class="p-2 ms-5 mt-3" th:field="*{saleRate}"><br>
-			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}" class="error2 p-2 ms-5 mt-3"></span><br>
+			<input type="number" class="p-2 ms-3 mt-3" th:field="*{saleRate}"><br>
+			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}" class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
-			<br>
+			<div class="monku ms-3">
 			<p class="in">●謳い文句●</p>
-			<input type="text" class="p-2 ms-5 mt-3"th:field="*{rec}"><br>
-			<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-2 ms-5 mt-3"></span><br>
-			<br>
+			<textarea name="rec" style="width:100%; height:50px;" ></textarea><br>
+			<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-25 mt-3"></span><br>
+			</div>
 			<br>
 			<div class="button1">
 				<input type="submit" value="送信" class="btn btn-outline-primary">　<input type="reset" value="リセット"
