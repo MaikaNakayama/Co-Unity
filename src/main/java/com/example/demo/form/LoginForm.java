@@ -1,6 +1,7 @@
 package com.example.demo.form;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
  */
 @Data
 public class LoginForm {
-	@NotBlank(message = "従業員番号が入力されていません。")
+	@NotNull(message = "従業員番号が入力されていません。")
 	private Integer empId;
 
 	@NotBlank(message = "秘密の質問が入力されていません。")
