@@ -23,7 +23,7 @@
 			<p class="in">●日程●</p><br>
 				<p id="new"> *翌日以降の日時をご入力ください</p>
 			<input type="date" class="p-2 ms-5 mt-3" id="date" th:field="*{date}"><br>
-			<br>
+			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error2 p-2 ms-5 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●ジャンル●</p>
@@ -42,16 +42,17 @@
 				<option value="10">製菓・アイス</option>
 			</select>
 			<br>
+			<span th:if="${#fields.hasErrors('genreCd')}" th:errors="*{genreCd}" class="error2 p-2 ms-5 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●割引率(%)●</p>
 			<input type="text" class="p-2 ms-5 mt-3" th:field="*{saleRate}"><br>
-			<br>
+			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}" class="error2 p-2 ms-5 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●謳い文句●</p>
 			<input type="text" class="p-2 ms-5 mt-3"th:field="*{rec}"><br>
-			<br>
+			<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-2 ms-5 mt-3"></span><br>
 			<br>
 			<br>
 			<div class="button1">

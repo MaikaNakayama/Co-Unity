@@ -17,7 +17,8 @@ import lombok.Data;
 
 @Data
 public class SaleForm {
-	@NotNull(message = "ジャンルを選択してください。")
+	@Min(value=1, message = "ジャンルを選択してください")
+	@Max(value=10,message = "ジャンルを選択してください")
 	private Integer genreCd;
 
 	@NotNull(message = "日付を入力してください。")
