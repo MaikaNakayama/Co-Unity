@@ -15,7 +15,7 @@ import com.example.demo.entity.SaleGenreEntity;
 
 public interface GenreRepository extends JpaRepository<SaleGenreEntity, Integer> {
 	
-	@Query(value="SELECT genre_cd, genre_name, date, sale_rate,rec FROM sale_data JOIN t_genre using(genre_cd)", nativeQuery = true)
+	@Query(value="SELECT discount_cd, genre_cd, genre_name, date, sale_rate,rec FROM sale_data JOIN t_genre using(genre_cd) ORDER BY Date", nativeQuery = true)
 	List<SaleGenreEntity> findAll();
 
 }

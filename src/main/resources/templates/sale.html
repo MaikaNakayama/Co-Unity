@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -41,10 +41,10 @@
 							<th>おすすめポイント</th>
 						</tr>
 						<tr th:each="data:${saleList}">
-							<td th:text="${data.genreName}"></td>
-							<td th:text="${data.date}"></td>
-							<td th:text="${data.saleRate} +'%OFF!!'"></td>
-							<td th:text="${data.rec}"></td>
+							<td th:text="${data.genreName}"/></td>
+							<td th:text="${data.date}"/></td>
+							<td th:text="${data.saleRate} +'%OFF!!'"/></td>
+							<td th:text="${data.rec}"/></td>
 						</tr>
 					</table>
 					<div class="button1">

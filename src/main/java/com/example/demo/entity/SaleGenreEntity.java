@@ -7,7 +7,6 @@ import org.springframework.data.domain.Persistable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,11 +18,13 @@ import lombok.Data;
 
 @Entity
 @Table(name = "sale_data")
-@IdClass(GenreEntity.class)
 @Data
 public class SaleGenreEntity implements Persistable<GenreEntity> {
 	
 	@Id
+	@Column(name = "discount_cd")
+	private Integer discountCd;
+	
 	@Column(name = "genre_cd")
 	private Integer genreCd;
 	
