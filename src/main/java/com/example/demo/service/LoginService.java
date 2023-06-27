@@ -32,7 +32,7 @@ public class LoginService {
 
 	public boolean isValidEmpId(LoginForm loginForm, BindingResult result) {
 		boolean ret = true;
-		List<LoginEntity> optionalLoginForm = loginRepository.findByEmpIdANDQuestion(loginForm.getEmpId(), loginForm.getQuestion());
+		List<LoginEntity> optionalLoginForm = loginRepository.findByEmpIdAndQuestion(loginForm.getEmpId(), loginForm.getQuestion());
 
 		//EmpIdとQuestionが空欄ではないが入力値が存在しない場合
 

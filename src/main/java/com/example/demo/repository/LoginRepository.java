@@ -13,8 +13,8 @@ import com.example.demo.entity.LoginEntity;
  */
 
 
-public interface LoginRepository extends JpaRepository<LoginRepository, Integer> {
+public interface LoginRepository extends JpaRepository<LoginEntity, Integer> {
 
-	List<LoginEntity> findByEmpIdANDQuestion(Integer empId, String Question);
+	List<LoginEntity> findByEmpIdAndQuestion(Integer empId, String question);
 	
 }
