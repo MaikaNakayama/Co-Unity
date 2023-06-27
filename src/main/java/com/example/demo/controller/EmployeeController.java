@@ -38,7 +38,7 @@ public class EmployeeController {
 	 */
 
 	@PostMapping("/menu")
-	public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm,HttpSession session, BindingResult result, ModelAndView mv) {
+	public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result, ModelAndView mv) {
 
 		if (result.hasErrors()) {
 			//エラーがある場合login.htmlに遷移する。
@@ -80,7 +80,8 @@ public class EmployeeController {
 		LoginForm loginForm = (LoginForm) session.getAttribute("key");
 		
 		if(loginForm == null) {
-			mv.setViewName("newlogin");
+			mv.addObject("loginForm", loginForm);
+			mv.setViewName("login");
 			return mv;
 			
 		}else {
