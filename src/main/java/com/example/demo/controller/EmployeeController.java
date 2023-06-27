@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.LoginEntity;
 import com.example.demo.entity.SaleEntity;
 import com.example.demo.form.LoginForm;
 import com.example.demo.form.SaleForm;
@@ -30,10 +31,11 @@ public class EmployeeController {
 		 */
 
 		@PostMapping("/menu")
-		public ModelAndView login(@ModelAttribute @Validated LoginForm loginform, BindingResult result,ModelAndView mv){
+		public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result,ModelAndView mv){
 			//サービスクラスのメソッドを呼び出してエラーチェックを行う
-			loginService.isValidEmpId(loginform, result);
-			loginService.validQuestion(loginform, result);
+			LoginEntity loginEntity=new LoginEntity();
+			loginService.isValidEmpId(loginEntity, result);
+			loginService.validQuestion(loginForm, result);
 			if(!result.hasErrors()) {
 				//エラーがない場合.htmlに遷移する。
 				mv.setViewName("menu");

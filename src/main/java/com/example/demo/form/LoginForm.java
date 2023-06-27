@@ -1,7 +1,10 @@
 package com.example.demo.form;
 
+import com.example.demo.entity.LoginEntity;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 /**
@@ -12,8 +15,16 @@ import lombok.Data;
 @Data
 public class LoginForm {
 	@NotNull(message = "従業員番号が入力されていません。")
-	private Integer empId;
+	@Pattern(regexp="^[0-9]{10}",message="従業員番号は桁数に注意して、1~10の数字で入力してください。")
+	private String empId;
 
 	@NotBlank(message = "秘密の質問が入力されていません。")
 	private String question;
+	
+	public LoginEntity getEntity() {
+		LoginEntity loginEntity = new LoginEntity();
+		loginEntity.setEmpId(Integer.parseInt(empId));
+		loginEntity.setQuestion(question);
+		return loginEntity;
+	}
 }
