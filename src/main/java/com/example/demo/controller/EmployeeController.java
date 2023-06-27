@@ -14,6 +14,7 @@ import com.example.demo.form.LoginForm;
 import com.example.demo.form.SaleForm;
 import com.example.demo.repository.SaleRepository;
 import com.example.demo.service.LoginService;
+import com.example.demo.service.SaleService;
 
 import lombok.AllArgsConstructor;
 
@@ -23,7 +24,8 @@ public class EmployeeController {
 
 	private final LoginService loginService;
 
-	private final SaleRepository saleRepository;//
+	private final SaleRepository saleRepository;
+	private final SaleService saleService;
 
 	/**
 	 * 従業員番号と秘密の質問をフォームから取得して遷移先を決定する
@@ -77,7 +79,7 @@ public class EmployeeController {
 	@PostMapping("/salecomplete")
 	public ModelAndView insert(@ModelAttribute @Validated SaleForm saleForm, BindingResult result, ModelAndView mv) {
 		//サービスクラスのメソッドを呼び出してエラーチェックを行う
-		//insertService.valid(saleForm, result);
+		saleService.validRec(saleForm, result);
 
 		if (!result.hasErrors()) {
 			//エラーがない場合、DBに情報を登録し、次画面に遷移する
