@@ -81,7 +81,7 @@ public class EmployeeController {
 		
 		if(loginForm == null) {
 			mv.addObject("loginForm", loginForm);
-			mv.setViewName("login");
+			mv.setViewName("newlogin");
 			return mv;
 			
 		}else {
