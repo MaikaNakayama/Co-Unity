@@ -1,0 +1,57 @@
+package com.example.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.form.LoginForm;
+import com.example.demo.service.LoginService;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@Controller
+public class EmployeeController {
+
+		private final LoginService loginService;
+//		private final SaleRepository saleRepository;//
+		/**
+		 * 従業員番号と秘密の質問をフォームから取得して遷移先を決定する
+		 * @param loginform 従業員番号、秘密の質問の回答
+		 * @param result エラーメッセージ
+		 * @param mv 遷移先の値
+		 * @return menu.html,login.html
+		 */
+
+		@PostMapping("/menu")
+		public ModelAndView login(@ModelAttribute @Validated LoginForm loginform, BindingResult result,ModelAndView mv){
+			//サービスクラスのメソッドを呼び出してエラーチェックを行う
+			loginService.isValidEmpId(loginform, result);
+			
+			if(!result.hasErrors()) {
+				//エラーがない場合.htmlに遷移する。
+				mv.setViewName("menu");
+				return mv;
+				
+			}else {
+				//エラーがある場合ページにとどまる
+				mv.setViewName("login");
+				return mv;
+			}
+		}
+
+		
+		/**
+		 * メニュー画面からセール情報を挿入する画面に遷移する
+		 * @return .html
+		 */
+
+		@PostMapping("/info")
+		public String info() {
+			return "saleinput";
+		}
+		
+}
