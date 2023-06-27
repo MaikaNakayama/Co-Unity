@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<form action="/menu" th:object="${loginForm}" method="post">
+	<form action="/menu"  method="post">
 		<header class="header">
 			
 			<h1>Ace従業員専用ページ</h1>
@@ -25,14 +25,12 @@
 			<table class="table table-striped table-light p-3 m-3" style="width: 375px;">
 				<tr>
 					<th>従業員番号</th>
-					<td><input type="text" th:field="*{empId}"><br>
-						<span th:if="${#fields.hasErrors('empId')}" th:errors="*{empId}" class="error2"></span><br>
+					<td><input type="number" name="empId"><br>
 					</td>
 				</tr>
 				<tr>
 					<th>秘密の質問</th>
-					<td><input type="text"　th:field="*{question}"><br>
-						<span th:if="${#fields.hasErrors('question')}" th:errors="*{question}" class="error2"></span><br>
+					<td><input type="text" name="question"><br>
 					</td>
 				</tr>
 

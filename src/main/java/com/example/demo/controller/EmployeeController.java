@@ -3,11 +3,14 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.SaleEntity;
 import com.example.demo.form.LoginForm;
+import com.example.demo.form.SaleForm;
 import com.example.demo.service.LoginService;
 
 import lombok.AllArgsConstructor;
@@ -49,9 +52,34 @@ public class EmployeeController {
 		 * @return .html
 		 */
 
-		@PostMapping("/info")
-		public String info() {
-			return "saleinput";
+		@GetMapping("/info")
+		public ModelAndView info(SaleForm saleForm,ModelAndView mv) {
+			mv.addObject("saleForm", saleForm);
+			mv.setViewName("saleinput");
+			return mv;
 		}
 		
+		@PostMapping("/salecomplete")
+		public ModelAndView insert(@ModelAttribute @Validated SaleForm saleForm, BindingResult result, ModelAndView mv) {
+			//サービスクラスのメソッドを呼び出してエラーチェックを行う
+			//insertService.valid(saleForm, result);
+			
+			if(!result.hasErrors()) {
+				//エラーがない場合、DBに情報を登録し、次画面に遷移する
+				
+				SaleEntity saleEntity = new SaleEntity();
+				saleEntity.setGenreCd(saleForm.getGenreCd());
+				saleEntity.setDate(saleForm.getDate());
+				saleEntity.setSaleRate(saleForm.getSaleRate());
+				saleEntity.setRec(saleForm.getRec());
+				//saleRepository.saveAndFlush(saleEntity);
+				mv.setViewName("salecomplete");
+				return mv;
+				
+			}else {
+				//エラーがある場合ページにとどまる
+				mv.setViewName("saleinput");
+				return mv;
+			}
+}
 }
