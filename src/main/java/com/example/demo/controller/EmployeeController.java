@@ -16,12 +16,14 @@ import com.example.demo.repository.SaleRepository;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.SaleService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Controller
 public class EmployeeController {
 
+	private final HttpSession session;
 	private final LoginService loginService;
 
 	private final SaleRepository saleRepository;
@@ -36,11 +38,13 @@ public class EmployeeController {
 	 */
 
 	@PostMapping("/menu")
-	public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result, ModelAndView mv) {
+	public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm,HttpSession session, BindingResult result, ModelAndView mv) {
 
 		if (result.hasErrors()) {
 			//エラーがある場合login.htmlに遷移する。
+			
 			mv.setViewName("login");
+			
 			return mv;
 		}
 
@@ -59,6 +63,7 @@ public class EmployeeController {
 
 		} else {
 			//エラーがない場合menu.htmlに遷移する。
+			session.setAttribute("key",loginForm);
 			mv.setViewName("menu");
 			return mv;
 		}
@@ -70,10 +75,19 @@ public class EmployeeController {
 	 */
 
 	@GetMapping("/info")
-	public ModelAndView info(SaleForm saleForm, ModelAndView mv) {
+	public ModelAndView info(SaleForm saleForm, HttpSession session,ModelAndView mv) {
+		
+		LoginForm loginForm = (LoginForm) session.getAttribute("key");
+		
+		if(loginForm == null) {
+			mv.setViewName("newlogin");
+			return mv;
+			
+		}else {
 		mv.addObject("saleForm", saleForm);
 		mv.setViewName("saleinput");
 		return mv;
+	}
 	}
 
 	@PostMapping("/salecomplete")
