@@ -33,9 +33,11 @@ public class EmployeeController {
 		@PostMapping("/menu")
 		public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result,ModelAndView mv){
 			//サービスクラスのメソッドを呼び出してエラーチェックを行う
-			LoginEntity loginEntity=new LoginEntity();
-			loginService.isValidEmpId(loginEntity, result);
 			loginService.validQuestion(loginForm, result);
+			LoginEntity loginEntity=new LoginEntity();
+			loginEntity.setEmpId(Integer.parseInt(loginForm.getEmpId()));
+			loginEntity.setQuestion(loginForm.getQuestion());
+			loginService.isValidEmpId(loginEntity, result);
 			if(!result.hasErrors()) {
 				//エラーがない場合.htmlに遷移する。
 				mv.setViewName("menu");
