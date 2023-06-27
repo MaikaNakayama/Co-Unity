@@ -63,8 +63,13 @@ q {
 .area {
 	font-size: 26px;
 }
-
 #top {
+	font-size: 22px;
+	padding: 20px 20px 0 30px;
+	
+}
+
+#top1 {
 	font-size: 22px;
 	padding: 20px 20px 0 30px;
 	color:red
