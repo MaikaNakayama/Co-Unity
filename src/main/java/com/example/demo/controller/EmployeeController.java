@@ -12,6 +12,7 @@ import com.example.demo.entity.LoginEntity;
 import com.example.demo.entity.SaleEntity;
 import com.example.demo.form.LoginForm;
 import com.example.demo.form.SaleForm;
+import com.example.demo.repository.SaleRepository;
 import com.example.demo.service.LoginService;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +23,8 @@ public class EmployeeController {
 
 	private final LoginService loginService;
 
-	//		private final SaleRepository saleRepository;//
+	private final SaleRepository saleRepository;//
+
 	/**
 	 * 従業員番号と秘密の質問をフォームから取得して遷移先を決定する
 	 * @param loginform 従業員番号、秘密の質問の回答
@@ -49,6 +51,7 @@ public class EmployeeController {
 
 		if (result.hasErrors()) {
 			//エラーがある場合login.htmlに遷移する。
+			mv.addObject("loginForm", loginForm);
 			mv.setViewName("login");
 			return mv;
 
@@ -84,7 +87,7 @@ public class EmployeeController {
 			saleEntity.setDate(saleForm.getDate());
 			saleEntity.setSaleRate(saleForm.getSaleRate());
 			saleEntity.setRec(saleForm.getRec());
-			//saleRepository.saveAndFlush(saleEntity);
+			saleRepository.saveAndFlush(saleEntity);
 			mv.setViewName("salecomplete");
 			return mv;
 
