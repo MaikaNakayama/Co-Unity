@@ -46,7 +46,7 @@
 			<br>
 			<br>
 			<p class="in">●割引率(%)●</p>
-			<input type="text" class="p-2 ms-5 mt-3" th:field="*{saleRate}"><br>
+			<input type="number" class="p-2 ms-5 mt-3" th:field="*{saleRate}"><br>
 			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}" class="error2 p-2 ms-5 mt-3"></span><br>
 			<br>
 			<br>
