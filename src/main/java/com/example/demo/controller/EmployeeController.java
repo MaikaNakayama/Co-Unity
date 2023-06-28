@@ -19,13 +19,17 @@ import com.example.demo.service.SaleService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
+/**
+ * 従業員ページログインや遷移を行うコントローラークラス
+ * @author 青木
+ *
+ */
 @AllArgsConstructor
 @Controller
 public class EmployeeController {
 
 	private final HttpSession session;
 	private final LoginService loginService;
-
 	private final SaleRepository saleRepository;
 	private final SaleService saleService;
 
@@ -34,62 +38,58 @@ public class EmployeeController {
 	 * @param loginform 従業員番号、秘密の質問の回答
 	 * @param result エラーメッセージ
 	 * @param mv 遷移先の値
-	 * @return menu.html,login.html
+	 * @return login.html、/admin/menu
 	 */
-
-	@PostMapping("/menu")
-	public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result, ModelAndView mv) {
-
-		if (result.hasErrors()) {
-			//エラーがある場合login.htmlに遷移する。
+	 @PostMapping("/login")
+		public ModelAndView login(@ModelAttribute @Validated LoginForm loginForm, BindingResult result, ModelAndView mv) {
 			
-			mv.setViewName("login");
+		 if (result.hasErrors()) {
+				mv.setViewName("login");
+				return mv;
+			}
+			//サービスクラスのメソッドを呼び出してエラーチェックを行う
+			LoginEntity loginEntity = new LoginEntity();
+			loginEntity.setEmpId(Integer.parseInt(loginForm.getEmpId()));
+			loginEntity.setQuestion(loginForm.getQuestion());
+			loginService.isValidEmpId(loginEntity, result);
+			loginService.validQuestion(loginForm, result);
+				//エラーがある場合login.htmlに遷移する。
 			
-			return mv;
-		}
+			if (result.hasErrors()) {
+				//エラーがある場合login.htmlに遷移する。
+				mv.addObject("loginForm", loginForm);
+				mv.setViewName("login");
+				return mv;
 
-		//サービスクラスのメソッドを呼び出してエラーチェックを行う
-		LoginEntity loginEntity = new LoginEntity();
-		loginEntity.setEmpId(Integer.parseInt(loginForm.getEmpId()));
-		loginEntity.setQuestion(loginForm.getQuestion());
-		loginService.isValidEmpId(loginEntity, result);
-		loginService.validQuestion(loginForm, result);
-
-		if (result.hasErrors()) {
-			//エラーがある場合login.htmlに遷移する。
-			mv.addObject("loginForm", loginForm);
-			mv.setViewName("login");
-			return mv;
-
-		} else {
-			//エラーがない場合menu.htmlに遷移する。
-			session.setAttribute("key",loginForm);
-			mv.setViewName("menu");
-			return mv;
-		}
+			} else {
+				//エラーがない場合admin/menuに遷移する。
+				session.setAttribute("key",loginForm);
+				mv.setViewName("redirect:/admin/menu");
+				return mv;
+			}
+	    }
+	 
+	/**
+	 * セッションのチェックを行いつつメニュー画面に遷移を行う
+	 * @return menu.html
+	 */
+	@GetMapping("/admin/menu")
+    public String someMethod() {
+		//セッションに値があればメニュー画面に遷移する
+		return "menu";
 	}
 
 	/**
 	 * メニュー画面からセール情報を挿入する画面に遷移する
 	 * @return .html
 	 */
-
-	@GetMapping("/info")
-	public ModelAndView info(SaleForm saleForm, HttpSession session,ModelAndView mv) {
-		
-		LoginForm loginForm = (LoginForm) session.getAttribute("key");
-		
-		if(loginForm == null) {
-			mv.addObject("loginForm", loginForm);
-			mv.setViewName("newlogin");
-			return mv;
-			
-		}else {
+	@GetMapping("/admin/info")
+	public ModelAndView info(SaleForm saleForm,ModelAndView mv) {
 		mv.addObject("saleForm", saleForm);
 		mv.setViewName("saleinput");
 		return mv;
 	}
-	}
+	
 
 	@PostMapping("/salecomplete")
 	public ModelAndView insert(@ModelAttribute @Validated SaleForm saleForm, BindingResult result, ModelAndView mv) {
@@ -117,18 +117,22 @@ public class EmployeeController {
 			return mv;
 		}
 	}
-	@GetMapping("power")
-	public ModelAndView power(HttpSession session,ModelAndView mv) {
-LoginForm loginForm = (LoginForm) session.getAttribute("key");
-		
-		if(loginForm == null) {
-			mv.addObject("loginForm", loginForm);
-			mv.setViewName("newlogin");
-			return mv;
-			
-		}else {
-		mv.setViewName("powerBI");
-		return mv;
+	
+	/**
+	 * セッションのチェックを行い、PowerBIのサイトに遷移する
+	 * @return powerBI.html
+	 */
+	@GetMapping("/admin/power")
+	public String power() {
+		return "powerBI";
 	}
+	
+	/**
+	 * セッションのチェックがエラーだった場合に、newlogin.htmlのサイトに遷移する
+	 * @return
+	 */
+	@GetMapping("/err")
+	public String error() {
+		return "newlogin";
 	}
 }
