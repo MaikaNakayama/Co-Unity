@@ -17,7 +17,7 @@
 
 	<form action="/ankeComplete" th:object="${ankeForm}" method="post">
 
-	<div class="container-fluid">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="top py-4 ">
 					<a href="https://counity.azurewebsites.net/ace.html" class="link">
@@ -36,22 +36,23 @@
 
 			■店舗を選択：
 			<br>
-			<select class="mainselect" 　>
-				<option value="">ジャンルを選択</option>
-				<option value="toy">グッズ</option>
+			<select class="mainselect" name="genre" th:field="*{genre}">
+				<option value="" >ジャンルを選択</option>
+				<option value="toy" >グッズ</option>
 				<option value="gourmet">グルメ</option>
-				<option value="sarvice">サービス</option>
+				<option value="service">サービス</option>
 			</select>
 
 
-			<select id="toy" class="subbox" name="shopName">
+
+			<select id="toy" class="subbox" name="shopName" th:field="${ankeForm.shopName}">
 				<option value="">グッズを選択</option>
 				<option value="OWNDAYS">OWNDAYS</option>
 				<option value="ダイソー">ダイソー</option>
 			</select>
 
 
-			<select id="gourmet" class="subbox" name="shopName">
+			<select id="gourmet" class="subbox" name="shopName" th:field="${ankeForm.shopName}">
 				<option value="">グルメを選択</option>
 				<option value="コメダ珈琲">コメダ珈琲</option>
 				<option value="イタリアンダイニングDONA">イタリアンダイニングDONA</option>
@@ -60,7 +61,7 @@
 			</select>
 
 
-			<select id="sarvice" class="subbox" name="shopName">
+			<select id="service" class="subbox" name="shopName" th:field="${ankeForm.shopName}">
 				<option value="">サービスを選択</option>
 				<option value="ママショップ可能クリーニング">ママショップ可能クリーニング</option>
 				<option value="マジックミシン">マジックミシン</option>
@@ -98,40 +99,45 @@
 						targetSub.style.display = 'block';
 					}
 				}
-
+				// ▼初期表示時に選択されているジャンルに対応するsubboxを表示する
+				var initialGenre = document.querySelector(".mainselect").value;
+				if (initialGenre) {
+					var initialSubBox = document.getElementById(initialGenre);
+					initialSubBox.style.display = 'block';
+				}
 			}
 
 		</script>
 
-		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" 　class="error ms-3"></span><br>
+		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" class="error ms-3"></span><br>
 		</div>
 		<div class="tenpo ms-3">
 			<h4>店内雰囲気の評価</h4>
-			<label> <input type="radio" name="evaCd" value="5">5点</label>
-			<label> <input type="radio" name="evaCd" value="4">4点</label>
-			<label> <input type="radio" name="evaCd" value="3">3点</label>
-			<label> <input type="radio" name="evaCd" value="2">2点</label>
-			<label> <input type="radio" name="evaCd" value="1">1点</label>
+			<label> <input type="radio" name="evaCd" value="5" th:field="${ankeForm.evaCd}">5点</label>
+			<label> <input type="radio" name="evaCd" value="4" th:field="${ankeForm.evaCd}">4点</label>
+			<label> <input type="radio" name="evaCd" value="3" th:field="${ankeForm.evaCd}">3点</label>
+			<label> <input type="radio" name="evaCd" value="2" th:field="${ankeForm.evaCd}">2点</label>
+			<label> <input type="radio" name="evaCd" value="1" th:field="${ankeForm.evaCd}">1点</label>
 		</div>
 		<span th:if="${#fields.hasErrors('evaCd')}" th:errors="*{evaCd}" class="error ms-3"></span><br>
 
 		<div class="tenpo ms-3">
 			<h4>お客様への対応評価</h4>
-			<label> <input type="radio" name="cevaCd" value="5">5点</label>
-			<label> <input type="radio" name="cevaCd" value="4">4点</label>
-			<label> <input type="radio" name="cevaCd" value="3">3点</label>
-			<label> <input type="radio" name="cevaCd" value="2">2点</label>
-			<label> <input type="radio" name="cevaCd" value="1">1点</label>
+			<label> <input type="radio" name="cevaCd" value="5" th:field="${ankeForm.cevaCd}">5点</label>
+			<label> <input type="radio" name="cevaCd" value="4" th:field="${ankeForm.cevaCd}">4点</label>
+			<label> <input type="radio" name="cevaCd" value="3" th:field="${ankeForm.cevaCd}">3点</label>
+			<label> <input type="radio" name="cevaCd" value="2" th:field="${ankeForm.cevaCd}">2点</label>
+			<label> <input type="radio" name="cevaCd" value="1" th:field="${ankeForm.cevaCd}">1点</label>
 		</div>
 		<span th:if="${#fields.hasErrors('cevaCd')}" th:errors="*{cevaCd}" class="error ms-3"></span><br>
 
 		<div class="tenpo ms-3">
 			<h4>品質・品ぞろえの評価</h4>
-			<label> <input type="radio" name="sevaCd" value="5">5点</label>
-			<label> <input type="radio" name="sevaCd" value="4">4点</label>
-			<label> <input type="radio" name="sevaCd" value="3">3点</label>
-			<label> <input type="radio" name="sevaCd" value="2">2点</label>
-			<label> <input type="radio" name="sevaCd" value="1">1点</label>
+			<label> <input type="radio" name="sevaCd" value="5" th:field="${ankeForm.sevaCd}">5点</label>
+			<label> <input type="radio" name="sevaCd" value="4" th:field="${ankeForm.sevaCd}">4点</label>
+			<label> <input type="radio" name="sevaCd" value="3" th:field="${ankeForm.sevaCd}">3点</label>
+			<label> <input type="radio" name="sevaCd" value="2" th:field="${ankeForm.sevaCd}">2点</label>
+			<label> <input type="radio" name="sevaCd" value="1" th:field="${ankeForm.sevaCd}">1点</label>
 		</div>
 		<span th:if="${#fields.hasErrors('sevaCd')}" th:errors="*{sevaCd}" class="error ms-3"></span><br>
 

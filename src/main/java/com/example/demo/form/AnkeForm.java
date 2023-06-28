@@ -41,6 +41,7 @@ public class AnkeForm {
 	@NotBlank(message = "理由をご記入ください")
 	private String reason;
 	
+	private String genre;
 	
 	/**
 	 * AnkeEntityに値を格納
