@@ -117,4 +117,18 @@ public class EmployeeController {
 			return mv;
 		}
 	}
+	@GetMapping("power")
+	public ModelAndView power(HttpSession session,ModelAndView mv) {
+LoginForm loginForm = (LoginForm) session.getAttribute("key");
+		
+		if(loginForm == null) {
+			mv.addObject("loginForm", loginForm);
+			mv.setViewName("newlogin");
+			return mv;
+			
+		}else {
+		mv.setViewName("powerBI");
+		return mv;
+	}
+	}
 }
