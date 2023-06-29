@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 
 /**
  * 顧客側の画面遷移を決定するコントローラークラス
- * @author isa
+ * @author 中山、青木、平松
  * @version 1.0
  */
 @AllArgsConstructor
@@ -32,7 +32,12 @@ public class AceController {
 	private final AnkeService ankeService;
 	private final GenreRepository genreRepository;
 
-	//ace.htmlからanke.htmlに遷移させる
+	/**
+	 * ace.htmlからanke.htmlに遷移させる
+	 * @param ankeForm　アンケートフォーム
+	 * @param mv　アンケートフォームへの遷移
+	 * @return mv(/anke)　アンケートフォームへの遷移
+	 */
 
 	@GetMapping("/anke")
 	public ModelAndView sample(AnkeForm ankeForm, ModelAndView mv) {
@@ -44,10 +49,10 @@ public class AceController {
 
 	/**
 	 * anke.htmlからankeComplete.htmlに遷移させる。
-	 * @param ankeForm
-	 * @param result
-	 * @return 
-	 * @return
+	 * @param ankeForm アンケートフォームに入力された情報を保持するフォームクラス
+	 * @param result　エラーメッセージ
+	 * @param mv 遷移先の値
+	 * @return mv　遷移先の値(/ankeComplete)
 	 */
 
 	//エラーがある場合はanke.htmlにエラーを返す。ない場合はankeComplete.htmlに遷移。
@@ -108,9 +113,8 @@ public class AceController {
 
 	/**
 	 * sale_dataからセール日と割引率を、t_genreから商品ジャンルをもらってace.htmlからsale.htmlに遷移させる
-	 * @param mv
-	 * @param categoryCd
-	 * @return mv
+	 * @param mv　遷移先の値
+	 * @return mv　遷移先の値(/sale)
 	 */
 	@GetMapping("/sale")
 	public ModelAndView bargain(@ModelAttribute ModelAndView mv) {
