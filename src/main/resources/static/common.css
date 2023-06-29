@@ -14,6 +14,10 @@ body {
 	font-weight: normal;
 }
 
+#subtex {
+	text-align: right;
+}
+
 .table {
 	float: left
 }
@@ -151,6 +155,7 @@ q {
 		width: 40%;
 		margin: 0 550px 20px 80px;
 	}
+
 	#top1 {
 		margin-left: 40px;
 	}
@@ -169,7 +174,7 @@ q {
 	.table {
 		width: 40%;
 		margin: 10px 500px 0 50px;
-		
+
 	}
 
 	.button1 {
@@ -188,6 +193,7 @@ q {
 		width: 50%;
 		margin: 10px 170px 0 50px;
 	}
+
 	.button1 {
 		margin-left: 50px;
 	}
@@ -207,6 +213,7 @@ q {
 		width: 60%;
 		margin: 10px 50px 0 50px;
 	}
+
 	.button1 {
 		margin-left: 50px;
 	}
@@ -223,6 +230,7 @@ q {
 	#b {
 		font-size: 14px;
 	}
+
 	#top {
 		margin-left: 30px;
 	}
@@ -231,21 +239,23 @@ q {
 		width: 80%;
 		margin-left: 50px;
 	}
+
 	.button1 {
 		margin-left: 50px;
 	}
 }
 
-@media screen and  (min-width:300px) and (max-width: 440px) {
+@media screen and (min-width:300px) and (max-width: 440px) {
 	.table {
 		width: 80%;
 		margin-left: 40px;
 	}
-    .button1 {
-	    margin-left: 40px;
-    }
-	
-	
+
+	.button1 {
+		margin-left: 40px;
+	}
+
+
 	.table1 {
 		width: 80%;
 		margin-left: 40px;
@@ -257,17 +267,17 @@ q {
 
 	#top {
 		font-size: 17px;
-		margin : 0 20px 0 20px;
+		margin: 0 20px 0 20px;
 
 	}
 
 	#top1 {
 		font-size: 16px;
-		margin : 0 20px 0 10px;
+		margin: 0 20px 0 10px;
 	}
 }
 
-@media screen and  (max-width: 300px) {
+@media screen and (max-width: 300px) {
 	.table {
 		margin-left: 30px;
 		width: 86%;
@@ -298,12 +308,12 @@ q {
 
 	h2 {
 		font-size: 20px;
-		margin : 0 20px 0 18px;
+		margin: 0 20px 0 18px;
 	}
 
 	#top1 {
 		font-size: 13px;
-		margin : 0 10px 0 0;
+		margin: 0 10px 0 0;
 	}
 
 	#top {
