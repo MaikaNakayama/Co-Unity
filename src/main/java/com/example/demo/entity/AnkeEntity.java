@@ -10,8 +10,8 @@ import lombok.Data;
 
 /**
  * アンケート情報を保持するエンティティクラス
- * @author 	平松
- * @version 	1.0
+ * @author 平松
+ * @version 1.0
  */
 @Entity
 @Table(name = "t_enquete")

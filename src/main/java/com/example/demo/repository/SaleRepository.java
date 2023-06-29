@@ -4,6 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.SaleEntity;
 
+/**
+ * 入力された情報をDB上にのせるためのインターフェース
+ * @author 中山
+ * @version 1.0
+ */
 public interface SaleRepository extends JpaRepository<SaleEntity, Integer> {
 
 	

@@ -11,9 +11,8 @@ import lombok.Data;
 /**
  * アンケート情報を保持するエンティティクラス
  * @author 道田
- * @version 	1.0
+ * @version 1.0
  */
-
 @Embeddable
 @Table(name = "t_genre")
 @Data

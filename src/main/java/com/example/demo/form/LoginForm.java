@@ -8,7 +8,7 @@ import lombok.Data;
 /**
  * ログイン情報を照合するためのフォームクラス
  * @author 平松
- *
+ * @version 1.0
  */
 @Data
 public class LoginForm {

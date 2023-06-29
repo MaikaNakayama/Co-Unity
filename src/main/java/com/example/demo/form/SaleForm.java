@@ -12,9 +12,8 @@ import lombok.Data;
 /**
  * セール情報を格納するためのフォームクラス
  * @author 平松
- *
+ * @version 1.0
  */
-
 @Data
 public class SaleForm {
 	@Min(value=1, message = "ジャンルを選択してください")

@@ -10,9 +10,8 @@ import com.example.demo.entity.SaleGenreEntity;
 /**
  * 入力された情報をDB上にのせるためのインターフェース
  * @author 道田
- * @version 	1.0
+ * @version 1.0
  */
-
 public interface GenreRepository extends JpaRepository<SaleGenreEntity, Integer> {
 	
 	@Query(value="SELECT discount_cd, genre_cd, genre_name, date, sale_rate,rec FROM sale_data JOIN t_genre using(genre_cd) WHERE date>current_date ORDER BY Date;", nativeQuery = true)
