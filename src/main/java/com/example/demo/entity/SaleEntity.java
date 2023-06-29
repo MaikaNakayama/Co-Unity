@@ -36,6 +36,5 @@ public class SaleEntity {
 
 	@Column(name = "rec")
 	private String rec;
-	
 
 }

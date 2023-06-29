@@ -37,6 +37,7 @@ public class LoginService {
 		//EmpIdとQuestionが空欄ではないが入力値が存在しない場合
 
 		if (optionalLoginForm.isEmpty()) {
+
 			result.addError(new FieldError(
 					result.getObjectName(),
 					"login",

@@ -18,11 +18,3 @@ public interface GenreRepository extends JpaRepository<SaleGenreEntity, Integer>
 	List<SaleGenreEntity> findAll();
 
 }
-
-//SaleEntityのところには新しく作ったEntityクラス名を入れる
-//新しいEntityクラスにはdate, sale_rate, genre_nameを入れる
-//WHERE genre_cd=:genre_cd で表を表示させるために何を入力させたいか
-
-//select date, sale_rate, genre_name from sale_data join t_genre using(genre_cd) where genre_cd=:genre_cd", nativeQuery = true
-
-//SELECT date, sale_rate,genre_name FROM sale_data JOIN t_genre using(genre_cd);
