@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class SaleService {
-	
+
 	/**
 	 * 謳い文句が空欄ではないが、入力値がない場合。
 	 * @param saleForm ユーザーが入力した値。
@@ -36,9 +36,8 @@ public class SaleService {
 						"rec",
 						"全角スペースです"));
 			}
-			
+
 		}
 		return ret;
 	}
 }
-
