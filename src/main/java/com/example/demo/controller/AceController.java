@@ -53,12 +53,26 @@ public class AceController {
 	//エラーがある場合はanke.htmlにエラーを返す。ない場合はankeComplete.htmlに遷移。
 	@PostMapping("/ankeComplete")
 	public ModelAndView ankeInput(@ModelAttribute @Validated AnkeForm ankeForm, BindingResult result, ModelAndView mv) {
+		ankeForm.setShopName(ankeForm.getShopName().replace(",", ""));
 		if (result.hasErrors()) {
 			//バリデーションにてエラーがある場合の処理
+			String genre = ankeForm.getGenre();
+			String[] shopList = null;
+			if (genre.equals("goods")) {
+				//anke.htmlでジャンルが選ばれた場合にジャンルのリストを返す。
+				shopList = new String[] { "OWNDAYS", "ダイソー" };
+			} else if (genre.equals("gourmet")) {
+				//anke.htmlでグルメが選ばれた場合にグルメのリストを返す。
+				shopList = new String[] { "コメダ珈琲", "イタリアンダイニングDONA", "リンガーハット", "マクドナルド" };
+			} else if (genre.equals("service")) {
+				//anke.htmlでサービスが選ばれた場合にサービスのリストを返す。
+				shopList = new String[] { "ママショップ加納クリーニング", "マジックミシン", "ラフィネ", "イオンカルチャークラブ" };
+			}
+			mv.addObject("shopList", shopList);
 			mv.setViewName("anke");
 			return mv;
 		}
-		ankeForm.setShopName(ankeForm.getShopName().replace(",", ""));
+		
 		ankeService.validName(ankeForm, result);
 		ankeService.validReason(ankeForm, result);
 		ankeService.validEmp(ankeForm, result);
