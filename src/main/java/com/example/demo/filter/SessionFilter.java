@@ -15,9 +15,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /**
- * セッションのチェックを行うクラス
+ * ログイン処理のフィルタクラス。URLに/admin/が含まれる場合、ログイン必須とする。
  * @author 青木
- *
+ * @version 1.0
  */
 @Component
 public class SessionFilter implements Filter {
@@ -26,28 +26,28 @@ public class SessionFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 
-		//セッションが存在しなければエラーとする。
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 
 		//現在のURLパスを検索し値を取得する
 		System.out.println(request.getRequestURI());
 		String url = request.getRequestURI();
-		
+
 		//現在のURLにadminが含まれているかをチェックする
 		int index = url.indexOf("admin");
-		
+
 		//現在のURLにadminがある場合の処理
 		if (index != -1) {
-			
+
 			//セッションのチェックを行う
 			HttpSession session = request.getSession(false);
 			if (session == null || session.getAttribute("key") == null) {
+				//現在のURLにadminがない場合の処理
 				response.sendRedirect(request.getContextPath() + "/err");
 				return;
 			}
 		}
-		//現在のURLにadminがない場合の処理
+		//現在のURLにadminがある場合の処理
 		chain.doFilter(request, response);
 	}
 

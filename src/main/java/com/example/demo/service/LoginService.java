@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
  * @author 道田
  * @version 1.0
  */
-
 @AllArgsConstructor
 @Service
 public class LoginService {
@@ -32,7 +31,8 @@ public class LoginService {
 
 	public boolean isValidEmpId(LoginEntity loginEntity, BindingResult result) {
 		boolean ret = true;
-		List<LoginEntity> optionalLoginForm = loginRepository.findByEmpIdAndQuestion(loginEntity.getEmpId(), loginEntity.getQuestion());
+		List<LoginEntity> optionalLoginForm = loginRepository.findByEmpIdAndQuestion(loginEntity.getEmpId(),
+				loginEntity.getQuestion());
 
 		//EmpIdとQuestionが空欄ではないが入力値が存在しない場合
 
@@ -47,7 +47,6 @@ public class LoginService {
 		return ret;
 	}
 
-	
 	/**
 	 * 秘密の質問が空欄ではないが、入力値がない場合。
 	 * @param loginForm ユーザーが入力した値。
