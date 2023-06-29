@@ -51,7 +51,7 @@
 			<br>
 			<div class="monku ms-3">
 			<p class="in">●謳い文句●</p>
-			<textarea name="rec" style="width:100%; height:50px;" ></textarea><br>
+			<textarea name="rec" style="width:100%; height:50px;"th:field="*{rec}" ></textarea><br>
 			<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-25 mt-3"></span><br>
 			</div>
 			<br>
