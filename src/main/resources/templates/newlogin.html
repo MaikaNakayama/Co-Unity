@@ -21,24 +21,29 @@
 		</header>
 		<h2>【従業員ログイン画面】</h2>
 		<main>
-			<p id="top1">・不明なログインを検知しました。以下の情報を入力してください</p>
-			<table class="table table-striped table-light p-3 m-3" style="width: 375px;">
+			<p id="top1">・不正なアクセスを検知しました。以下の情報を再度入力してください</p>
+			
+			<table class="table table-striped table-light mt-3">
 				<tr>
-					<th>従業員番号</th>
-					<td><input type="text" name="empId"><br>
+					<th nowrap>従業員番号</th>
+					<td><input type="text" style="width:90%;" name="empId"><br>
 					</td>
 				</tr>
 				<tr>
-					<th>秘密の質問</th>
-					<td><input type="text" name="question"><br>
+					<th nowrap>秘密の質問</th>
+					<td><input type="text" style="width:90%;" name="question"><br>
 					</td>
 				</tr>
 
 			</table>
+			
 			<br>
-			<div class="button1">
-				<input type="submit" value="ログイン" class="btn btn-outline-primary">　<input type="reset" value="リセット"
-					class="btn btn-outline-secondary">　　　　
+			
+			
+			
+			<div class="button1 mt-3">
+				<input type="submit" value="ログイン" class="btn btn-outline-primary mt-3">　<input type="reset" value="リセット"
+					class="btn btn-outline-secondary mt-3">
 			</div>
 	</form>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
