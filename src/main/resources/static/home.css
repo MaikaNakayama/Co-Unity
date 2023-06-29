@@ -1,47 +1,58 @@
 .top {
-background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+	background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
 }
+
 .navbar {
-background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+	background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .content {
 	background-color: #5a3f3f;
 	color: #FFF;
-    height: 180px;
+	height: 180px;
 }
 
 .bottom {
-    text-align: center;
-    background-color: #34495E;
+	text-align: center;
+	background-color: #34495E;
 	color: #FFF;
 }
+
 .img-fluid {
-    height: auto;
-    width: 70%;
+	height: auto;
+	width: 70%;
 }
-.pct{
-    height:auto;
-    width:50%;
+
+.pct {
+	height: auto;
+	width: 50%;
 }
-.carousel-control-prev-icon, .carousel-control-next-icon{
+
+.card img {
+	display: block;
+	margin: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
 	height: 100px;
-    width: 100px;
-    outline: black;
-    background-color: rgba(0, 0, 0, 0.3);
-    background-size: 100%, 100%;
-    border-radius: 50%;
-    border: 1px solid black;
+	width: 100px;
+	outline: black;
+	background-color: rgba(0, 0, 0, 0.3);
+	background-size: 100%, 100%;
+	border-radius: 50%;
+	border: 1px solid black;
 }
 
-input[type=radio]{
-    width: 30px;
-    height: 30px;
+input[type=radio] {
+	width: 30px;
+	height: 30px;
 
 }
-#btn1{
-    size:10px;
- 
+
+#btn1 {
+	size: 10px;
+
 }
 
 .error {
@@ -51,14 +62,12 @@ input[type=radio]{
 	margin: 0 30px 0 0;
 }
 
-.pulldownset{
+.pulldownset {
 	font-size: 23px;
 	font-weight: bold;
 }
 
-.link{
+.link {
 	color: white;
 	text-decoration: none;
 }
-
-
