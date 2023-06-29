@@ -1,5 +1,6 @@
 .top {
 	background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+	padding: 30px 0 20px 20px;
 }
 
 .navbar {
@@ -16,6 +17,20 @@
 	text-align: center;
 	background-color: #34495E;
 	color: #FFF;
+}
+
+#subtex {
+	text-align: right;
+}
+
+c {
+	font-size: 22px;
+	color: rgb(255, 255, 136);
+}
+
+d {
+	font-size: 15px;
+	color: antiquewhite
 }
 
 .img-fluid {
