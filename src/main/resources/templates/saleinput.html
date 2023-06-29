@@ -16,12 +16,14 @@
 	<form action="/admin/salecomplete" th:object="${saleForm}" method="post">
 		<header class="header">
 			<h1>Ace従業員専用ページ</h1>
-			<p id="b"><c>Ace</c>「お客さまの豊かな生活を支援する」</p>
+			<p id="b">
+				<c>Ace</c>「お客さまの豊かな生活を支援する」
+			</p>
 		</header>
 		<h2>【セール日新規登録画面】</h2>
 		<main>
 			<p class="in">●日程●</p><br>
-				<p id="new"> *翌日以降の日時をご入力ください</p>
+			<p id="new"> *翌日以降の日時をご入力ください</p>
 			<input type="date" class="p-2 ms-3 mt-3" id="date" th:field="*{date}"><br>
 			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
@@ -42,22 +44,25 @@
 				<option value="10">製菓・アイス</option>
 			</select>
 			<br>
-			<span th:if="${#fields.hasErrors('genreCd')}" th:errors="*{genreCd}" class="error2 p-2 ms-3 mt-3"></span><br>
+			<span th:if="${#fields.hasErrors('genreCd')}" th:errors="*{genreCd}"
+				class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
 			<br>
 			<p class="in">●割引率(%)●</p>
 			<input type="number" class="p-2 ms-3 mt-3" th:field="*{saleRate}"><br>
-			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}" class="error2 p-2 ms-3 mt-3"></span><br>
+			<span th:if="${#fields.hasErrors('saleRate')}" th:errors="*{saleRate}"
+				class="error2 p-2 ms-3 mt-3"></span><br>
 			<br>
 			<div class="monku ms-3">
-			<p class="in">●謳い文句●</p>
-			<textarea name="rec" style="width:100%; height:50px;"th:field="*{rec}" ></textarea><br>
-			<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-25 mt-3"></span><br>
+				<p class="in">●謳い文句●</p>
+				<textarea name="rec" style="width:100%; height:50px;" th:field="*{rec}"></textarea><br>
+				<span th:if="${#fields.hasErrors('rec')}" th:errors="*{rec}" class="error2 p-25 mt-3"></span><br>
 			</div>
 			<br>
 			<div class="button1">
 				<input type="submit" value="送信" class="btn btn-outline-primary">　<input type="reset" value="リセット"
-					class="btn btn-outline-secondary">　　　　　<button type="button" onclick="history.back()" class="btn btn-outline-danger">戻る</button>
+					class="btn btn-outline-secondary">　　　　　<button type="button" onclick="history.back()"
+					class="btn btn-outline-danger">戻る</button>
 			</div>
 	</form>
 	</div>

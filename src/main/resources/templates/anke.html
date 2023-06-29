@@ -48,7 +48,7 @@
 			<select id="menu2" th:field="${ankeForm.shopName}">
 				<option th:each="shop : ${shopList}" th:value="${shop}" th:text="${shop}"></option>
 			</select>
-			
+
 			<script th:inline="javascript">
 				//選択されたメニュー1に応じてメニュー2を作成する関数
 				function selectItem(selectedValue) {
@@ -76,11 +76,11 @@
 					selectedShopName.textContent = selectedShop;
 				}
 			</script>
-			
+
 		</div>
 		<span th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}" class="error ms-3"></span><br>
 		</div>
-		
+
 		<div class="tenpo ms-3">
 			<h4>店内雰囲気の評価</h4>
 			<label> <input type="radio" name="evaCd" value="5" th:field="${ankeForm.evaCd}">5点</label>

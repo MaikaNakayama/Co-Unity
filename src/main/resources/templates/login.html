@@ -15,14 +15,16 @@
 <body>
 	<form action="login" th:object="${loginForm}" method="post">
 		<header class="header">
-			
+
 			<h1>Ace従業員専用ページ</h1>
-			<p id="b" nowrap><c>Ace</c>「お客さまの豊かな生活を支援する」</p>
+			<p id="b" nowrap>
+				<c>Ace</c>「お客さまの豊かな生活を支援する」
+			</p>
 		</header>
 		<h2>【従業員ログイン画面】</h2>
 		<main>
 			<p id="top1">・入力内容に不備があります。<br>　再度,以下の情報を入力してください</p>
-			
+
 			<table class="table1 table table-striped table-light mt-3">
 				<tr>
 					<th nowrap>従業員番号</th>
@@ -33,16 +35,17 @@
 				<tr>
 					<th nowrap>秘密の質問</th>
 					<td><input type="text" style="width:90%;" th:field="*{question}"><br>
-						<span th:if="${#fields.hasErrors('question')}" th:errors="*{question}" class="error2"></span><br>
+						<span th:if="${#fields.hasErrors('question')}" th:errors="*{question}"
+							class="error2"></span><br>
 					</td>
 				</tr>
 
 			</table>
-		
+
 			<br>
-			
-			
-			
+
+
+
 			<div class="button1 mt-3">
 				<input type="submit" value="ログイン" class="btn btn-outline-primary mt-3">　<input type="reset" value="リセット"
 					class="btn btn-outline-secondary mt-3">

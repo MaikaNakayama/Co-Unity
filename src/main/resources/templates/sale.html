@@ -25,9 +25,9 @@
 								</ruby>店
 							</h2>
 							<h5 id="subtex">
-							<c>Ace</c>
-							<d>「お客さまの豊かな生活を支援する」</d>
-						</h5>
+								<c>Ace</c>
+								<d>「お客さまの豊かな生活を支援する」</d>
+							</h5>
 						</a>
 					</div>
 				</div>
@@ -45,10 +45,14 @@
 							<th>おすすめポイント</th>
 						</tr>
 						<tr th:each="data:${saleList}">
-							<td th:text="${data.genreName}"/></td>
-							<td th:text="${data.date}"/></td>
-							<td th:text="${data.saleRate} +'%OFF!!'"/></td>
-							<td th:text="${data.rec}"/></td>
+							<td th:text="${data.genreName}" />
+							</td>
+							<td th:text="${data.date}" />
+							</td>
+							<td th:text="${data.saleRate} +'%OFF!!'" />
+							</td>
+							<td th:text="${data.rec}" />
+							</td>
 						</tr>
 					</table>
 					<div class="button1">
