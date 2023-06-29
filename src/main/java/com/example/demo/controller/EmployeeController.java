@@ -142,6 +142,16 @@ public class EmployeeController {
 		//セッションがあればpowerBI.htnlに遷移する
 		return "powerBI";
 	}
+	
+	/**
+	 * セッションのチェックを行い、PowerBIのサイトに遷移する
+	 * @return powerBI.html
+	 */
+	@GetMapping("/admin/stamenu")
+	public String stamenu() {
+		//セッションがあればpowerBI.htnlに遷移する
+		return "menu";
+	}
 
 	/**
 	 * セッションのチェックがエラーだった場合に、newlogin.htmlのサイトに遷移する
