@@ -72,10 +72,13 @@ public class AceController {
 			String genre = ankeForm.getGenre();
 			String[] shopList = null;
 			if (genre.equals("goods")) {
+				//anke.htmlでジャンルが選ばれた場合にジャンルのリストを返す。
 				shopList = new String[] { "OWNDAYS", "ダイソー" };
 			} else if (genre.equals("gourmet")) {
+				//anke.htmlでグルメが選ばれた場合にグルメのリストを返す。
 				shopList = new String[] { "コメダ珈琲", "イタリアンダイニングDONA", "リンガーハット", "マクドナルド" };
 			} else if (genre.equals("service")) {
+				//anke.htmlでサービスが選ばれた場合にサービスのリストを返す。
 				shopList = new String[] { "ママショップ加納クリーニング", "マジックミシン", "ラフィネ", "イオンカルチャークラブ" };
 			}
 			mv.addObject("shopList", shopList);
