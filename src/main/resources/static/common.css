@@ -14,15 +14,25 @@ body {
 	font-weight: normal;
 }
 
+.table {
+	float: left
+}
+
+.table1 {
+	float: left
+}
+
 #b {
 	text-align: right;
-	
+
 	font-size: 16px;
 }
+
 c {
 	font-size: 26px;
 	color: rgb(255, 255, 136);
 }
+
 
 p {
 	font-size: 20px;
@@ -34,63 +44,71 @@ h2 {
 	font-weight: bold;
 	margin: 10px 20px 10px 30px;
 }
+
 h3 {
 	font-size: 30px;
 	font-weight: bold;
 	margin: 10px 20px 10px 30px;
 	padding: 20px;
-	background-color: rgb(128, 255, 255); 
+	background-color: rgb(128, 255, 255);
 	display: inline-block;
 }
+
 .err {
 	padding: 10px 0 0 0;
 }
+
 .err p {
 	font-weight: 300px;
-	color:#444;
+	color: #444;
 	margin: 10px 20px 10px 34px;
 }
+
 q {
-	color: rgb(87, 22, 148) ;
+	color: rgb(87, 22, 148);
 	font-weight: bold;
 }
 
-.error{
+.error {
 	font-size: 20px;
 	font-weight: bold;
 	color: red;
 	margin: 10px 10px 0 60px;
 }
+
 .area {
 	font-size: 26px;
 }
+
 #top {
 	font-size: 22px;
-	padding: 20px 20px 0 30px;
-	
+	padding: 20px 20px 0 20px;
+
 }
 
 #top1 {
 	font-size: 22px;
-	padding: 20px 20px 0 30px;
-	color:red
+	padding: 20px 20px 0 24px;
+	color: red
 }
 
 .error2 {
 	font-size: 16px;
 	font-weight: bold;
 	color: red;
-	margin: 0 30px 0 0;
+
 }
 
 .button1 {
-	margin: 40px 0 30px 50px;
+	margin: 40px 0 30px 10px;
+	float: left
 }
 
 .in {
 	font-size: 22px;
 	padding: 20px 20px 0 30px;
 }
+
 #new {
 	font-size: 16px;
 	padding: 0 0 20px 40px;
@@ -102,6 +120,7 @@ q {
 	border-radius: 20px;
 	border-width: medium;
 }
+
 #select1 {
 	border-color: rgba(15, 101, 182, 0.884);
 	border-width: medium;
@@ -115,4 +134,181 @@ q {
 	background-color: rgba(243, 99, 99, 0.555);
 	padding: 30px;
 	margin: 30px 30px 70px 30px;
+}
+
+
+@media screen and (min-width:1300px) and (max-width: 1800px) {
+	.table1 {
+		width: 40%;
+		margin: 0 550px 20px 40px;
+	}
+
+	#top {
+		margin-left: 60px;
+	}
+
+	.table {
+		width: 40%;
+		margin: 0 550px 20px 80px;
+	}
+	#top1 {
+		margin-left: 40px;
+	}
+
+	.button1 {
+		margin-left: 80px;
+	}
+}
+
+@media screen and (min-width:1000px) and (max-width: 1300px) {
+	.table1 {
+		width: 40%;
+		margin: 0 500px 20px 40px;
+	}
+
+	.table {
+		width: 40%;
+		margin: 10px 500px 0 50px;
+		
+	}
+
+	.button1 {
+		margin-left: 50px;
+	}
+}
+
+
+@media screen and (min-width:840px) and (max-width: 1000px) {
+	.table1 {
+		width: 60%;
+		margin: 0 160px 20px 40px;
+	}
+
+	.table {
+		width: 50%;
+		margin: 10px 170px 0 50px;
+	}
+	.button1 {
+		margin-left: 50px;
+	}
+}
+
+@media screen and (min-width:700px) and (max-width: 840px) {
+	.table1 {
+		width: 60%;
+		margin-left: 30px;
+	}
+
+	#b {
+		font-size: 14px;
+	}
+
+	.table {
+		width: 60%;
+		margin: 10px 50px 0 50px;
+	}
+	.button1 {
+		margin-left: 50px;
+	}
+}
+
+
+
+@media screen and (min-width:440px) and (max-width: 700px) {
+	.table1 {
+		width: 80%;
+		margin-left: 30px;
+	}
+
+	#b {
+		font-size: 14px;
+	}
+	#top {
+		margin-left: 30px;
+	}
+
+	.table {
+		width: 80%;
+		margin-left: 50px;
+	}
+	.button1 {
+		margin-left: 50px;
+	}
+}
+
+@media screen and  (min-width:300px) and (max-width: 440px) {
+	.table {
+		width: 80%;
+		margin-left: 40px;
+	}
+    .button1 {
+	    margin-left: 40px;
+    }
+	
+	
+	.table1 {
+		width: 80%;
+		margin-left: 40px;
+	}
+
+	#b {
+		font-size: 14px;
+	}
+
+	#top {
+		font-size: 17px;
+		margin : 0 20px 0 20px;
+
+	}
+
+	#top1 {
+		font-size: 16px;
+		margin : 0 20px 0 10px;
+	}
+}
+
+@media screen and  (max-width: 300px) {
+	.table {
+		margin-left: 30px;
+		width: 86%;
+	}
+
+	.table1 {
+		width: 86%;
+		margin-left: 28px;
+	}
+
+	.button1 {
+		margin-left: 30px;
+		font-size: 14px;
+
+	}
+
+	h1 {
+		font-size: 22px;
+	}
+
+	c {
+		font-size: 18px;
+	}
+
+	#b {
+		font-size: 10px;
+	}
+
+	h2 {
+		font-size: 20px;
+		margin : 0 20px 0 18px;
+	}
+
+	#top1 {
+		font-size: 13px;
+		margin : 0 10px 0 0;
+	}
+
+	#top {
+		font-size: 13px;
+		margin-left: 10px;
+	}
+
 }
