@@ -1,10 +1,8 @@
 .top {
-	background-color: #34495E;
-	color: #FFF;
+background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
 }
 .navbar {
-	background-color: #dfe0e2;
-	color: #FFF;
+background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .content {

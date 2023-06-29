@@ -42,12 +42,12 @@ public class SessionFilter implements Filter {
 			//セッションのチェックを行う
 			HttpSession session = request.getSession(false);
 			if (session == null || session.getAttribute("key") == null) {
-				//現在のURLにadminがない場合の処理
+				//現在のURLにセッションがない場合の処理
 				response.sendRedirect(request.getContextPath() + "/err");
 				return;
 			}
 		}
-		//現在のURLにadminがある場合の処理
+		//現在のURLにセッションがある、もしくはURLパターンが/admin以外の場合の処理
 		chain.doFilter(request, response);
 	}
 
