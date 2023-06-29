@@ -134,7 +134,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * セッションのチェックを行い、PowerBIのサイトに遷移する
+	 * PowerBIのサイトに遷移する
 	 * @return powerBI.html
 	 */
 	@GetMapping("/admin/power")
@@ -144,12 +144,12 @@ public class EmployeeController {
 	}
 	
 	/**
-	 * セッションのチェックを行い、PowerBIのサイトに遷移する
+	 * menu.htmlに遷移する
 	 * @return powerBI.html
 	 */
 	@GetMapping("/admin/stamenu")
 	public String stamenu() {
-		//セッションがあればpowerBI.htnlに遷移する
+		//セッションがあればmenu.htnlに遷移する
 		return "menu";
 	}
 
