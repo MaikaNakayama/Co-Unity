@@ -9,11 +9,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
-	 * アンケート情報を入力用のFormクラス
-	 * @author 道田
-	 * @version 1.0
-	 */
-	
+ * アンケート情報を入力用のFormクラス
+ * @author 道田
+ * @version 1.0
+ */
 @Data
 public class AnkeForm {
 	

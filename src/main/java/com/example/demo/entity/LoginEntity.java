@@ -11,7 +11,6 @@ import lombok.Data;
  * @author 中山
  * @version 1.0
  */
-
 @Entity
 @Table (name = "t_employee")
 @Data
