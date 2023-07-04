@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * アンケート情報を保持するエンティティクラス
+ * セール情報を保持するエンティティクラス
  * @author 道田
  * @version 1.0
  */

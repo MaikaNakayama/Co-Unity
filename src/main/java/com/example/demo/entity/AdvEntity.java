@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @author 五十嵐
  *　@version 1.0
  */
-public class Adv {
+public class AdvEntity {
 
 	private Integer genreCd;
 
