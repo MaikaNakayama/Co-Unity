@@ -22,14 +22,8 @@ public class AdvController {
 
 	@GetMapping("/adv")
 	public List<SaleGenreEntity> Adv() {
-		//Entitiyの情報を取得し、Listの中へ入れる。
+		//DBから情報を取得し、Listの中へ入れる。
 		List<SaleGenreEntity> advertise = genreRepository.findAll();
-		/*advertise.setGenreName("genreName", saleGenreEntity);
-		advertise.setDate("date", saleGenreEntity);
-		advertise.setSaleRate("saleRate",saleGenreEntity);
-		advertise.setRec("rec",saleGenreEntity);*/
 		return advertise;
-
 	}
-
 }
