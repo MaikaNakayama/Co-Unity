@@ -31,7 +31,7 @@ public class SaleForm {
 	private Integer saleRate;
 
 	@NotBlank(message = "謳い文句を入力してください。")
-	@Size(min=1,max=15,message="文字数は15文字未満にしてください。")
+	@Size(min=1,max=15,message="文字数は15文字以下にしてください。")
 	private String rec;
 
 }
