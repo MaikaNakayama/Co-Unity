@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -30,6 +31,7 @@ public class SaleForm {
 	private Integer saleRate;
 
 	@NotBlank(message = "謳い文句を入力してください。")
+	@Size(min=1,max=15,message="文字数は15文字以下にしてください。")
 	private String rec;
 
 }
